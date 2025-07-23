@@ -1,5 +1,5 @@
 import React from "react";
-import Navbar from "../components/navbar";
+import Navbar from "../components/Header";
 import { Link } from "react-router-dom";
 import { Activity, LineChart, Target } from "lucide-react";
 import BmiCalculator from "../components/BmiCalculator";

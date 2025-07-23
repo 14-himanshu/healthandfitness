@@ -6,7 +6,7 @@ import Contact from "./pages/Contact";
 import Login from "./pages/Login";
 import SignUp from "./pages/Signup";
 import "./App.css";
-import Navbar from "./components/navbar";
+import Navbar from "./components/Header";
 
 function App() {
   return (
