@@ -4,7 +4,7 @@
     "module": "esnext",
     "moduleResolution": "bundler",
     "rootDir": "./",
-    "outDir": "../dist",
+    "outDir": "./dist",
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
     "strict": false,
