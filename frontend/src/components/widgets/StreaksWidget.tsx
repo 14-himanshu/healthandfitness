@@ -75,7 +75,7 @@ export default function StreaksWidget({ metrics = [] }: { metrics: Metric[] }) {
         className="relative mb-6"
       >
         <div className="absolute inset-0 bg-orange-500/20 rounded-full blur-xl animate-pulse"></div>
-        <div className="h-24 w-24 bg-gradient-to-br from-orange-400 to-red-500 rounded-full flex flex-col items-center justify-center text-white shadow-lg shadow-orange-500/30 relative z-10 border-4 border-white">
+        <div className="h-24 w-24 bg-gradient-to-br from-orange-400 to-red-500 rounded-full flex flex-col items-center justify-center text-foreground shadow-lg shadow-orange-500/30 relative z-10 border-4 border-white">
           <Flame className="h-8 w-8 mb-0.5 text-orange-100" />
           <span className="text-2xl font-black leading-none">{currentStreak}</span>
         </div>
@@ -88,20 +88,20 @@ export default function StreaksWidget({ metrics = [] }: { metrics: Metric[] }) {
         )}
       </motion.div>
       
-      <h3 className="font-bold text-slate-800 mb-1">
+      <h3 className="font-bold text-foreground mb-1">
         {currentStreak >= 7 ? "7-Day Warrior!" : currentStreak > 0 ? "On Fire!" : "Start Your Streak"}
       </h3>
-      <p className="text-[11px] text-slate-500 mb-5 text-center px-4 leading-tight">
+      <p className="text-[11px] text-muted-foreground mb-5 text-center px-4 leading-tight">
         You've tracked your health {currentStreak} consecutive days.
       </p>
 
       <div className="flex justify-between w-full px-2 gap-1.5">
         {days.map((day, i) => (
           <div key={i} className="flex flex-col items-center gap-1">
-            <div className={`w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold transition-all ${history[i] ? 'bg-orange-100 text-orange-600' : 'bg-slate-100 text-slate-400'}`}>
+            <div className={`w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold transition-all ${history[i] ? 'bg-orange-100 text-orange-600' : 'bg-muted text-muted-foreground'}`}>
               {history[i] ? <Flame className="h-3 w-3" /> : null}
             </div>
-            <span className="text-[9px] font-bold text-slate-400">{day}</span>
+            <span className="text-[9px] font-bold text-muted-foreground">{day}</span>
           </div>
         ))}
       </div>

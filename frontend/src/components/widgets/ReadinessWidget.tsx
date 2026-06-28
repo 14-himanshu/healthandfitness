@@ -6,9 +6,9 @@ export default function ReadinessWidget({ latest, metrics }: { latest: Metric, m
   if (!latest || !latest.hrv || !latest.resting_heart_rate) {
     return (
       <div className="h-full flex flex-col items-center justify-center text-center p-4">
-        <HeartPulse className="h-10 w-10 text-slate-300 mb-3" />
-        <p className="text-sm font-semibold text-slate-400">Clinical Data Missing</p>
-        <p className="text-xs text-slate-500 mt-1">Log HRV and RHR to unlock your Readiness Score.</p>
+        <HeartPulse className="h-10 w-10 text-muted-foreground mb-3" />
+        <p className="text-sm font-semibold text-muted-foreground">Clinical Data Missing</p>
+        <p className="text-xs text-muted-foreground mt-1">Log HRV and RHR to unlock your Readiness Score.</p>
       </div>
     );
   }
@@ -39,7 +39,7 @@ export default function ReadinessWidget({ latest, metrics }: { latest: Metric, m
     advice = "Your body is primed for strain. Push hard today!";
   } else if (score >= 60) {
     status = "Moderate Recovery";
-    color = "text-blue-500";
+    color = "text-primary";
     Icon = HeartPulse;
     advice = "Normal readiness. Proceed with your planned routine.";
   } else {
@@ -56,22 +56,22 @@ export default function ReadinessWidget({ latest, metrics }: { latest: Metric, m
           <Icon className="h-8 w-8" />
         </div>
         <div className="text-right">
-          <span className="text-[10px] uppercase font-bold tracking-widest text-slate-400">Score</span>
+          <span className="text-[10px] uppercase font-bold tracking-widest text-muted-foreground">Score</span>
           <div className={`text-4xl font-black ${color}`}>{score}</div>
         </div>
       </div>
       
       <div>
-        <h4 className="font-bold text-slate-800 text-lg mb-1">{status}</h4>
-        <p className="text-xs text-slate-500 font-medium leading-relaxed">{advice}</p>
+        <h4 className="font-bold text-foreground text-lg mb-1">{status}</h4>
+        <p className="text-xs text-muted-foreground font-medium leading-relaxed">{advice}</p>
       </div>
 
-      <div className="mt-4 pt-4 border-t border-slate-100 flex justify-between text-xs">
+      <div className="mt-4 pt-4 border-t border-border flex justify-between text-xs">
         <div>
-          <span className="text-slate-400">HRV:</span> <span className="font-bold text-slate-700">{latest.hrv}ms</span>
+          <span className="text-muted-foreground">HRV:</span> <span className="font-bold text-foreground">{latest.hrv}ms</span>
         </div>
         <div>
-          <span className="text-slate-400">RHR:</span> <span className="font-bold text-slate-700">{latest.resting_heart_rate}bpm</span>
+          <span className="text-muted-foreground">RHR:</span> <span className="font-bold text-foreground">{latest.resting_heart_rate}bpm</span>
         </div>
       </div>
     </div>

@@ -16,21 +16,21 @@ export default function Integrations() {
       id: 'apple',
       name: 'Apple Health',
       description: 'Sync your steps, workouts, heart rate, and sleep data automatically from your iPhone or Apple Watch.',
-      color: 'bg-slate-900',
-      icon: <Watch className="h-6 w-6 text-white" />
+      color: 'bg-card',
+      icon: <Watch className="h-6 w-6 text-foreground" />
     },
     {
       id: 'google',
       name: 'Google Fit',
       description: 'Connect to Google Fit to pull in your daily activity data across all your Android devices.',
       color: 'bg-blue-500',
-      icon: <Activity className="h-6 w-6 text-white" />
+      icon: <Activity className="h-6 w-6 text-foreground" />
     },
     {
       id: 'oura',
       name: 'Oura Ring',
       description: 'Import your advanced sleep stages, readiness scores, and body temperature metrics.',
-      color: 'bg-slate-800',
+      color: 'bg-secondary',
       icon: <div className="h-6 w-6 rounded-full border-4 border-white"></div>
     },
     {
@@ -38,17 +38,17 @@ export default function Integrations() {
       name: 'Fitbit',
       description: 'Sync your Fitbit tracker data including steps, active zone minutes, and resting heart rate.',
       color: 'bg-emerald-500',
-      icon: <Activity className="h-6 w-6 text-white" />
+      icon: <Activity className="h-6 w-6 text-foreground" />
     }
   ];
 
   return (
-    <div className="min-h-screen bg-slate-50 pt-24 pb-12">
+    <div className="min-h-screen bg-background pt-24 pb-12">
       <div className="max-w-4xl mx-auto px-4">
         
         <div className="mb-10">
-          <h1 className="text-3xl font-bold text-slate-900 mb-2">Connected Devices</h1>
-          <p className="text-slate-500 text-lg">Sync your health data automatically from your favorite wearables and apps.</p>
+          <h1 className="text-3xl font-bold text-foreground mb-2">Connected Devices</h1>
+          <p className="text-muted-foreground text-lg">Sync your health data automatically from your favorite wearables and apps.</p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -61,7 +61,7 @@ export default function Integrations() {
                 key={provider.id}
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                className={`bg-white p-6 rounded-2xl border transition-all ${isConnected ? 'border-blue-200 shadow-md shadow-blue-100/50' : 'border-slate-200 shadow-sm'}`}
+                className={`bg-card p-6 rounded-2xl border transition-all ${isConnected ? 'border-blue-200 shadow-md shadow-blue-100/50' : 'border-border shadow-sm'}`}
               >
                 <div className="flex items-start justify-between mb-4">
                   <div className={`w-12 h-12 rounded-xl flex items-center justify-center shadow-sm ${provider.color}`}>
@@ -74,14 +74,14 @@ export default function Integrations() {
                       Connected
                     </div>
                   ) : (
-                    <div className="flex items-center gap-1.5 px-3 py-1 bg-slate-100 text-slate-500 rounded-full text-xs font-bold border border-slate-200">
+                    <div className="flex items-center gap-1.5 px-3 py-1 bg-muted text-muted-foreground rounded-full text-xs font-bold border border-border">
                       Not Connected
                     </div>
                   )}
                 </div>
                 
-                <h3 className="text-xl font-bold text-slate-900 mb-2">{provider.name}</h3>
-                <p className="text-slate-500 text-sm mb-6 min-h-[40px] leading-relaxed">
+                <h3 className="text-xl font-bold text-foreground mb-2">{provider.name}</h3>
+                <p className="text-muted-foreground text-sm mb-6 min-h-[40px] leading-relaxed">
                   {provider.description}
                 </p>
 
@@ -89,7 +89,7 @@ export default function Integrations() {
                   onClick={() => handleConnect(provider.id)}
                   disabled={isConnecting !== null && !connecting}
                   variant={isConnected ? "outline" : "default"}
-                  className={`w-full font-bold h-11 rounded-xl ${isConnected ? 'hover:bg-red-50 hover:text-red-600 hover:border-red-200' : 'bg-blue-600 hover:bg-blue-700 shadow-sm'}`}
+                  className={`w-full font-bold h-11 rounded-xl ${isConnected ? 'hover:bg-red-50 hover:text-red-600 hover:border-red-200' : 'bg-primary hover:bg-primary/90 shadow-sm'}`}
                 >
                   {connecting ? (
                     <><RefreshCw className="h-4 w-4 mr-2 animate-spin" /> Connecting...</>
@@ -105,7 +105,7 @@ export default function Integrations() {
         </div>
 
         <div className="mt-12 bg-blue-50 border border-blue-100 rounded-2xl p-6 flex items-start gap-4">
-          <AlertCircle className="h-6 w-6 text-blue-600 shrink-0 mt-0.5" />
+          <AlertCircle className="h-6 w-6 text-primary shrink-0 mt-0.5" />
           <div>
             <h4 className="font-bold text-blue-900 mb-1">Data Privacy Guarantee</h4>
             <p className="text-blue-700/80 text-sm leading-relaxed">

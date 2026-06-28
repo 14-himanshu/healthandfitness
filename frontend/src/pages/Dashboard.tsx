@@ -64,19 +64,19 @@ export default function Dashboard() {
   };
 
   return (
-    <div className="min-h-screen bg-slate-50 font-sans pb-24 relative">
+    <div className="min-h-screen bg-background font-sans pb-24 relative">
       {/* Header Banner */}
-      <div className="bg-slate-900 text-white pt-24 pb-12 px-6 shadow-sm">
+      <div className="bg-card text-foreground pt-24 pb-12 px-6 shadow-sm">
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
           <div>
             <h1 className="text-3xl font-bold mb-2">Welcome back, {user?.name || 'User'}!</h1>
-            <p className="text-slate-400">Here's your health overview for today.</p>
+            <p className="text-muted-foreground">Here's your health overview for today.</p>
           </div>
           
           <div className="flex items-center gap-3">
             <Button 
               variant="outline" 
-              className="h-10 bg-slate-800 border-slate-700 text-white hover:bg-slate-700 hover:text-white font-semibold gap-2"
+              className="h-10 bg-secondary border-border text-foreground hover:bg-slate-700 hover:text-foreground font-semibold gap-2"
               onClick={() => setIsGoalModalOpen(true)}
             >
               <Target className="h-4 w-4" /> Goals
@@ -86,8 +86,8 @@ export default function Dashboard() {
               variant={isEditing ? "default" : "outline"} 
               className={`h-10 font-semibold gap-2 transition-colors ${
                 isEditing 
-                ? 'bg-blue-600 hover:bg-blue-700 text-white border-blue-600' 
-                : 'bg-slate-800 border-slate-700 text-white hover:bg-slate-700 hover:text-white'
+                ? 'bg-primary hover:bg-primary/90 text-primary-foreground border-primary' 
+                : 'bg-secondary border-border text-foreground hover:bg-slate-700 hover:text-foreground'
               }`}
             >
               {isEditing ? (
@@ -106,18 +106,18 @@ export default function Dashboard() {
         {/* Quick Stats Row (Live Data) */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
           {[
-            { label: 'Current Weight', value: latest?.weight ? `${latest.weight} kg` : '-- kg', trend: 'Latest Log', icon: <Scale className="h-5 w-5 text-blue-500" /> },
+            { label: 'Current Weight', value: latest?.weight ? `${latest.weight} kg` : '-- kg', trend: 'Latest Log', icon: <Scale className="h-5 w-5 text-primary" /> },
             { label: 'Total Calories', value: latest?.calories ? `${latest.calories} kcal` : '-- kcal', trend: 'Consumed Today', icon: <Flame className="h-5 w-5 text-orange-500" /> },
             { label: 'Protein Int.', value: latest?.protein ? `${latest.protein} g` : '-- g', trend: 'Macros', icon: <Activity className="h-5 w-5 text-emerald-500" /> },
             { label: 'Total Logs', value: `${metrics.length} days`, trend: 'Active Streak', icon: <LayoutGrid className="h-5 w-5 text-purple-500" /> },
           ].map((stat, i) => (
-            <div key={i} className="bg-white rounded-2xl p-5 shadow-sm border border-slate-200/60">
+            <div key={i} className="bg-card rounded-2xl p-5 shadow-sm border border-border">
               <div className="flex justify-between items-start mb-4">
-                <div className="bg-slate-50 p-2 rounded-xl">{stat.icon}</div>
+                <div className="bg-background p-2 rounded-xl">{stat.icon}</div>
               </div>
-              <h3 className="text-2xl font-bold text-slate-900 mb-1">{stat.value}</h3>
-              <p className="text-xs font-semibold text-slate-500 uppercase tracking-wider">{stat.label}</p>
-              <p className="text-[11px] text-slate-400 mt-2 font-medium">{stat.trend}</p>
+              <h3 className="text-2xl font-bold text-foreground mb-1">{stat.value}</h3>
+              <p className="text-xs font-semibold text-muted-foreground uppercase tracking-wider">{stat.label}</p>
+              <p className="text-[11px] text-muted-foreground mt-2 font-medium">{stat.trend}</p>
             </div>
           ))}
         </div>
@@ -134,18 +134,18 @@ export default function Dashboard() {
                 key={widget.id} 
                 value={widget} 
                 drag={isEditing}
-                className={`bg-white rounded-3xl shadow-sm border ${
+                className={`bg-card rounded-3xl shadow-sm border ${
                   isEditing 
-                  ? 'border-blue-400 border-dashed shadow-md ring-4 ring-blue-500/10 cursor-grab active:cursor-grabbing origin-center' 
-                  : 'border-slate-200/60'
+                  ? 'border-blue-400 border-dashed shadow-md ring-4 ring-primary/10 cursor-grab active:cursor-grabbing origin-center' 
+                  : 'border-border'
                 } ${widget.colSpan === 3 ? 'md:col-span-3' : 'md:col-span-1'}`}
                 whileDrag={{ scale: 1.02, zIndex: 50 }}
               >
-                <div className={`p-5 flex justify-between items-center border-b ${isEditing ? 'border-blue-100 bg-blue-50/50 rounded-t-3xl' : 'border-slate-50'}`}>
-                  <h3 className="font-bold text-slate-800">{widget.title}</h3>
+                <div className={`p-5 flex justify-between items-center border-b ${isEditing ? 'border-blue-100 bg-blue-50/50 rounded-t-3xl' : 'border-border'}`}>
+                  <h3 className="font-bold text-foreground">{widget.title}</h3>
                   {isEditing && (
                     <div className="flex items-center gap-2">
-                      <span className="text-[10px] font-bold uppercase tracking-widest text-blue-500 bg-blue-100 px-2 py-1 rounded-full">Drag to Move</span>
+                      <span className="text-[10px] font-bold uppercase tracking-widest text-primary bg-blue-100 px-2 py-1 rounded-full">Drag to Move</span>
                     </div>
                   )}
                 </div>
@@ -159,13 +159,13 @@ export default function Dashboard() {
         {/* Log Metrics Button (Always visible now to provide functionality) */}
         <div 
           onClick={() => setIsLogModalOpen(true)}
-          className="mt-6 border-2 border-dashed border-slate-300 rounded-3xl p-8 flex flex-col items-center justify-center text-slate-500 hover:bg-slate-100 hover:border-blue-400 hover:text-blue-600 transition-colors cursor-pointer bg-slate-50/50 group"
+          className="mt-6 border-2 border-dashed border-border rounded-3xl p-8 flex flex-col items-center justify-center text-muted-foreground hover:bg-muted hover:border-blue-400 hover:text-primary transition-colors cursor-pointer bg-background/50 group"
         >
-          <div className="bg-white p-3 rounded-full shadow-sm mb-3 group-hover:scale-110 transition-transform">
-             <PlusCircle className="h-8 w-8 text-blue-500" />
+          <div className="bg-card p-3 rounded-full shadow-sm mb-3 group-hover:scale-110 transition-transform">
+             <PlusCircle className="h-8 w-8 text-primary" />
           </div>
           <span className="font-bold text-lg">Log Today's Data</span>
-          <p className="text-sm text-slate-400 mt-1">Keep your streak alive by adding new metrics</p>
+          <p className="text-sm text-muted-foreground mt-1">Keep your streak alive by adding new metrics</p>
         </div>
 
         {/* Modals */}

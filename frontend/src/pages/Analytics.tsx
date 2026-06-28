@@ -41,30 +41,30 @@ export default function Analytics() {
   }, [chartData, forecast]);
 
   if (loading) {
-    return <div className="min-h-screen bg-slate-950 flex items-center justify-center text-white">Loading Advanced AI Analytics...</div>;
+    return <div className="min-h-screen bg-background flex items-center justify-center text-foreground">Loading Advanced AI Analytics...</div>;
   }
 
   return (
-    <div className="min-h-screen bg-slate-950 font-sans text-slate-200 pb-24">
+    <div className="min-h-screen bg-background font-sans text-slate-200 pb-24">
       
       {/* Header */}
-      <div className="border-b border-slate-800 bg-slate-900 pt-24 pb-8 px-6 sticky top-0 z-20">
+      <div className="border-b border-border bg-card pt-24 pb-8 px-6 sticky top-0 z-20">
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
           <div>
             <div className="flex items-center gap-3 mb-2">
-              <Link to="/dashboard" className="text-slate-400 hover:text-white transition-colors">
+              <Link to="/dashboard" className="text-muted-foreground hover:text-foreground transition-colors">
                 <ArrowLeft className="h-5 w-5" />
               </Link>
-              <h1 className="text-3xl font-bold text-white flex items-center gap-2">
+              <h1 className="text-3xl font-bold text-foreground flex items-center gap-2">
                 <Activity className="h-6 w-6 text-indigo-400" /> Clinical Analytics
               </h1>
             </div>
-            <p className="text-slate-400 ml-8">Advanced physiological data and AI-driven trend analysis.</p>
+            <p className="text-muted-foreground ml-8">Advanced physiological data and AI-driven trend analysis.</p>
           </div>
           
           <Button 
             onClick={exportCSV}
-            className="bg-indigo-600 hover:bg-indigo-700 text-white border-none h-11 px-6 rounded-xl font-bold shadow-lg shadow-indigo-900/50"
+            className="bg-primary hover:bg-primary/90 text-primary-foreground border-none h-11 px-6 rounded-xl font-bold shadow-lg shadow-indigo-900/50"
           >
             <Download className="h-4 w-4 mr-2" /> Export CSV Data
           </Button>
@@ -75,9 +75,9 @@ export default function Analytics() {
       <div className="max-w-7xl mx-auto px-4 md:px-6 mt-8">
         
         {metrics.length === 0 ? (
-          <div className="text-center py-24 text-slate-500">
+          <div className="text-center py-24 text-muted-foreground">
             <Stethoscope className="h-12 w-12 mx-auto mb-4 opacity-50" />
-            <h2 className="text-xl font-bold text-slate-300">No Clinical Data Found</h2>
+            <h2 className="text-xl font-bold text-muted-foreground">No Clinical Data Found</h2>
             <p className="mt-2">Log your daily metrics with the 'Advanced Clinical' toggle to see your charts.</p>
           </div>
         ) : (
@@ -86,17 +86,17 @@ export default function Analytics() {
             {/* ROW 1: AI Predictive Weight (Full Width) */}
             <motion.div 
               initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}
-              className="bg-slate-900 rounded-3xl p-6 border border-slate-800 shadow-xl md:col-span-2"
+              className="bg-card rounded-3xl p-6 border border-border shadow-xl md:col-span-2"
             >
               <div className="flex justify-between items-start mb-6">
                 <div>
-                  <h3 className="font-bold text-white text-lg flex items-center gap-2">
+                  <h3 className="font-bold text-foreground text-lg flex items-center gap-2">
                     <BrainCircuit className="h-5 w-5 text-purple-400" /> Predictive Weight Trajectory
                   </h3>
-                  <p className="text-slate-400 text-xs mt-1">Linear regression AI model predicting your next 30 days based on recent habits.</p>
+                  <p className="text-muted-foreground text-xs mt-1">Linear regression AI model predicting your next 30 days based on recent habits.</p>
                 </div>
                 {forecast && forecast.ratePerDay !== undefined && (
-                  <div className="bg-slate-800 px-4 py-2 rounded-xl text-right border border-slate-700">
+                  <div className="bg-secondary px-4 py-2 rounded-xl text-right border border-border">
                     <p className="text-xs font-bold text-purple-400 uppercase">Predicted Trend</p>
                     <p className="text-lg font-black text-purple-300">
                       {forecast.ratePerDay > 0 ? '+' : ''}{(forecast.ratePerDay * 7).toFixed(2)} kg / week
@@ -124,14 +124,14 @@ export default function Analytics() {
             {/* HRV Chart */}
             <motion.div 
               initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1 }}
-              className="bg-slate-900 rounded-3xl p-6 border border-slate-800 shadow-xl"
+              className="bg-card rounded-3xl p-6 border border-border shadow-xl"
             >
               <div className="flex justify-between items-start mb-6">
                 <div>
-                  <h3 className="font-bold text-white text-lg flex items-center gap-2">
+                  <h3 className="font-bold text-foreground text-lg flex items-center gap-2">
                     <HeartPulse className="h-5 w-5 text-indigo-400" /> Heart Rate Variability
                   </h3>
-                  <p className="text-slate-400 text-xs mt-1">Measured in ms (Higher is generally better recovery)</p>
+                  <p className="text-muted-foreground text-xs mt-1">Measured in ms (Higher is generally better recovery)</p>
                 </div>
               </div>
               <div className="h-[250px] w-full">
@@ -159,14 +159,14 @@ export default function Analytics() {
             {/* Resting HR Chart */}
             <motion.div 
               initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2 }}
-              className="bg-slate-900 rounded-3xl p-6 border border-slate-800 shadow-xl"
+              className="bg-card rounded-3xl p-6 border border-border shadow-xl"
             >
               <div className="flex justify-between items-start mb-6">
                 <div>
-                  <h3 className="font-bold text-white text-lg flex items-center gap-2">
+                  <h3 className="font-bold text-foreground text-lg flex items-center gap-2">
                     <Activity className="h-5 w-5 text-rose-400" /> Resting Heart Rate
                   </h3>
-                  <p className="text-slate-400 text-xs mt-1">Measured in bpm (Lower indicates better cardiovascular fitness)</p>
+                  <p className="text-muted-foreground text-xs mt-1">Measured in bpm (Lower indicates better cardiovascular fitness)</p>
                 </div>
               </div>
               <div className="h-[250px] w-full">
@@ -194,14 +194,14 @@ export default function Analytics() {
             {/* Fasting Glucose Chart */}
             <motion.div 
               initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.3 }}
-              className="bg-slate-900 rounded-3xl p-6 border border-slate-800 shadow-xl md:col-span-2"
+              className="bg-card rounded-3xl p-6 border border-border shadow-xl md:col-span-2"
             >
               <div className="flex justify-between items-start mb-6">
                 <div>
-                  <h3 className="font-bold text-white text-lg flex items-center gap-2">
+                  <h3 className="font-bold text-foreground text-lg flex items-center gap-2">
                     <Droplet className="h-5 w-5 text-teal-400" /> Fasting Blood Glucose
                   </h3>
-                  <p className="text-slate-400 text-xs mt-1">Measured in mg/dL</p>
+                  <p className="text-muted-foreground text-xs mt-1">Measured in mg/dL</p>
                 </div>
               </div>
               <div className="h-[250px] w-full">

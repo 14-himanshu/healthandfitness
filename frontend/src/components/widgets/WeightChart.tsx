@@ -9,7 +9,7 @@ export default function WeightChart({ metrics = [] }) {
   })).reverse(); // Oldest first for line chart
 
   if (data.length === 0) {
-    return <div className="text-slate-400 text-sm flex h-full items-center justify-center">No data logged yet</div>;
+    return <div className="text-muted-foreground text-sm flex h-full items-center justify-center">No data logged yet</div>;
   }
 
   return (

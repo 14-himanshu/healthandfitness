@@ -49,7 +49,7 @@ function Login() {
   };
 
   return (
-    <div className="min-h-screen relative bg-slate-50 overflow-hidden font-sans pt-20 pb-12 flex flex-col items-center">
+    <div className="min-h-screen relative bg-background overflow-hidden font-sans pt-20 pb-12 flex flex-col items-center">
       
       {/* BACKGROUND EFFECTS */}
       <div className="absolute inset-0 z-0">
@@ -68,10 +68,10 @@ function Login() {
           transition={{ duration: 0.6 }}
           className="text-center max-w-3xl mx-auto mb-12"
         >
-          <div className="inline-flex items-center justify-center p-3 bg-white rounded-2xl shadow-sm border border-slate-100 mb-6">
-            <Activity className="h-8 w-8 text-blue-600" />
+          <div className="inline-flex items-center justify-center p-3 bg-card rounded-2xl shadow-sm border border-border mb-6">
+            <Activity className="h-8 w-8 text-primary" />
           </div>
-          <h1 className="text-4xl md:text-5xl font-extrabold tracking-tight text-slate-900 mb-4">
+          <h1 className="text-4xl md:text-5xl font-extrabold tracking-tight text-foreground mb-4">
             Your Health Journey Starts Here.
           </h1>
           <p className="text-lg text-slate-600">
@@ -86,28 +86,28 @@ function Login() {
           transition={{ duration: 0.6, delay: 0.1 }}
           className="w-full flex flex-wrap justify-center gap-4 md:gap-6 mb-16"
         >
-          <div className="bg-white/80 backdrop-blur-md rounded-2xl p-5 shadow-sm border border-slate-200/60 w-40 flex flex-col items-center">
+          <div className="bg-card/80 backdrop-blur-md rounded-2xl p-5 shadow-sm border border-border w-40 flex flex-col items-center">
             <div className="h-10 w-10 rounded-full bg-red-50 flex items-center justify-center mb-3">
               <HeartPulse className="h-5 w-5 text-red-500" />
             </div>
-            <p className="text-xs text-slate-500 font-medium uppercase tracking-wider mb-1">Heart Rate</p>
-            <p className="text-xl font-bold text-slate-900">72 <span className="text-sm font-medium text-slate-500">BPM</span></p>
+            <p className="text-xs text-muted-foreground font-medium uppercase tracking-wider mb-1">Heart Rate</p>
+            <p className="text-xl font-bold text-foreground">72 <span className="text-sm font-medium text-muted-foreground">BPM</span></p>
           </div>
 
-          <div className="bg-white/80 backdrop-blur-md rounded-2xl p-5 shadow-sm border border-slate-200/60 w-40 flex flex-col items-center">
+          <div className="bg-card/80 backdrop-blur-md rounded-2xl p-5 shadow-sm border border-border w-40 flex flex-col items-center">
             <div className="h-10 w-10 rounded-full bg-emerald-50 flex items-center justify-center mb-3">
               <Scale className="h-5 w-5 text-emerald-500" />
             </div>
-            <p className="text-xs text-slate-500 font-medium uppercase tracking-wider mb-1">BMI</p>
-            <p className="text-xl font-bold text-slate-900">22.1 <span className="text-sm font-medium text-emerald-600">Healthy</span></p>
+            <p className="text-xs text-muted-foreground font-medium uppercase tracking-wider mb-1">BMI</p>
+            <p className="text-xl font-bold text-foreground">22.1 <span className="text-sm font-medium text-emerald-600">Healthy</span></p>
           </div>
 
-          <div className="bg-white/80 backdrop-blur-md rounded-2xl p-5 shadow-sm border border-slate-200/60 w-40 flex flex-col items-center">
+          <div className="bg-card/80 backdrop-blur-md rounded-2xl p-5 shadow-sm border border-border w-40 flex flex-col items-center">
             <div className="h-10 w-10 rounded-full bg-orange-50 flex items-center justify-center mb-3">
               <Flame className="h-5 w-5 text-orange-500" />
             </div>
-            <p className="text-xs text-slate-500 font-medium uppercase tracking-wider mb-1">Calories</p>
-            <p className="text-xl font-bold text-slate-900">1,850 <span className="text-sm font-medium text-slate-500">kcal</span></p>
+            <p className="text-xs text-muted-foreground font-medium uppercase tracking-wider mb-1">Calories</p>
+            <p className="text-xl font-bold text-foreground">1,850 <span className="text-sm font-medium text-muted-foreground">kcal</span></p>
           </div>
         </motion.div>
 
@@ -116,14 +116,14 @@ function Login() {
           initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.5, delay: 0.2 }}
-          className="w-full max-w-[480px] bg-white/70 backdrop-blur-xl rounded-[2rem] p-8 sm:p-10 shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-white/50 ring-1 ring-blue-500/10 relative"
+          className="w-full max-w-[480px] bg-card/70 backdrop-blur-xl rounded-[2rem] p-8 sm:p-10 shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-white/50 ring-1 ring-primary/10 relative"
         >
           {/* Subtle glow behind card */}
           <div className="absolute -inset-0.5 bg-gradient-to-b from-blue-500/20 to-transparent rounded-[2rem] blur opacity-30 -z-10"></div>
 
           <div className="text-center mb-8">
-            <h2 className="text-2xl font-bold text-slate-900 mb-2">Welcome Back</h2>
-            <p className="text-slate-500 text-sm">Sign in securely to your dashboard.</p>
+            <h2 className="text-2xl font-bold text-foreground mb-2">Welcome Back</h2>
+            <p className="text-muted-foreground text-sm">Sign in securely to your dashboard.</p>
           </div>
 
           <form onSubmit={handleSubmit(onSubmit)} className="space-y-5">
@@ -139,15 +139,15 @@ function Login() {
             )}
 
             <div className="space-y-1.5 relative">
-              <Label htmlFor="email" className="text-slate-700 font-semibold text-sm">Email</Label>
+              <Label htmlFor="email" className="text-foreground font-semibold text-sm">Email</Label>
               <div className="relative">
-                <Mail className="absolute left-3.5 top-3.5 h-5 w-5 text-slate-400" />
+                <Mail className="absolute left-3.5 top-3.5 h-5 w-5 text-muted-foreground" />
                 <Input
                   id="email"
                   type="email"
                   placeholder="name@example.com"
                   {...register("email")}
-                  className={`pl-11 h-12 rounded-xl bg-white/50 border-slate-200 focus:bg-white focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10 transition-all ${errors.email ? "border-red-500 focus:ring-red-500/10" : ""}`}
+                  className={`pl-11 h-12 rounded-xl bg-card/50 border-border focus:bg-card focus:border-primary focus:ring-4 focus:ring-primary/10 transition-all ${errors.email ? "border-red-500 focus:ring-red-500/10" : ""}`}
                 />
               </div>
               {errors.email && <p className="text-xs text-red-500 font-medium">{errors.email.message}</p>}
@@ -155,24 +155,24 @@ function Login() {
             
             <div className="space-y-1.5 relative">
               <div className="flex items-center justify-between">
-                <Label htmlFor="password" className="text-slate-700 font-semibold text-sm">Password</Label>
-                <Link to="#" className="text-xs font-semibold text-blue-600 hover:text-blue-700 transition-colors">
+                <Label htmlFor="password" className="text-foreground font-semibold text-sm">Password</Label>
+                <Link to="#" className="text-xs font-semibold text-primary hover:text-blue-700 transition-colors">
                   Forgot Password?
                 </Link>
               </div>
               <div className="relative">
-                <Lock className="absolute left-3.5 top-3.5 h-5 w-5 text-slate-400" />
+                <Lock className="absolute left-3.5 top-3.5 h-5 w-5 text-muted-foreground" />
                 <Input
                   id="password"
                   type={showPassword ? "text" : "password"}
                   placeholder="••••••••"
                   {...register("password")}
-                  className={`pl-11 pr-11 h-12 rounded-xl bg-white/50 border-slate-200 focus:bg-white focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10 transition-all ${errors.password ? "border-red-500 focus:ring-red-500/10" : ""}`}
+                  className={`pl-11 pr-11 h-12 rounded-xl bg-card/50 border-border focus:bg-card focus:border-primary focus:ring-4 focus:ring-primary/10 transition-all ${errors.password ? "border-red-500 focus:ring-red-500/10" : ""}`}
                 />
                 <button 
                   type="button" 
                   onClick={() => setShowPassword(!showPassword)}
-                  className="absolute right-3.5 top-3.5 text-slate-400 hover:text-slate-600 transition-colors"
+                  className="absolute right-3.5 top-3.5 text-muted-foreground hover:text-slate-600 transition-colors"
                 >
                   {showPassword ? <EyeOff className="h-5 w-5" /> : <Eye className="h-5 w-5" />}
                 </button>
@@ -181,14 +181,14 @@ function Login() {
             </div>
 
             <div className="flex items-center gap-2 pt-1 pb-2">
-              <input type="checkbox" id="remember" className="rounded border-slate-300 text-blue-600 focus:ring-blue-500/20 h-4 w-4" />
+              <input type="checkbox" id="remember" className="rounded border-border text-primary focus:ring-primary/20 h-4 w-4" />
               <label htmlFor="remember" className="text-sm text-slate-600 font-medium cursor-pointer">Remember Me</label>
             </div>
 
             <Button 
               type="submit" 
               disabled={isLoading}
-              className="w-full h-12 rounded-xl text-base font-bold shadow-sm bg-blue-600 hover:bg-blue-700 text-white transition-all hover:-translate-y-0.5"
+              className="w-full h-12 rounded-xl text-base font-bold shadow-sm bg-primary hover:bg-primary/90 text-primary-foreground transition-all hover:-translate-y-0.5"
             >
               {isLoading ? (
                 <Loader2 className="mr-2 h-5 w-5 animate-spin" />
@@ -199,11 +199,11 @@ function Login() {
           </form>
 
           <div className="mt-8 flex items-center gap-4 before:h-px before:flex-1 before:bg-slate-200 after:h-px after:flex-1 after:bg-slate-200">
-            <span className="text-xs text-slate-400 font-semibold uppercase tracking-wider">Continue with</span>
+            <span className="text-xs text-muted-foreground font-semibold uppercase tracking-wider">Continue with</span>
           </div>
 
           <div className="mt-8 grid grid-cols-2 gap-3">
-            <Button variant="outline" className="h-11 rounded-xl border-slate-200 bg-white hover:bg-slate-50 font-semibold gap-2 text-slate-700">
+            <Button variant="outline" className="h-11 rounded-xl border-border bg-card hover:bg-background font-semibold gap-2 text-foreground">
               <svg viewBox="0 0 24 24" className="h-5 w-5" aria-hidden="true">
                 <path d="M12.0003 4.75C13.7703 4.75 15.3553 5.36002 16.6053 6.54998L20.0303 3.125C17.9502 1.19 15.2353 0 12.0003 0C7.31028 0 3.25527 2.69 1.28027 6.60998L5.27028 9.70498C6.21525 6.86002 8.87028 4.75 12.0003 4.75Z" fill="#EA4335" />
                 <path d="M23.49 12.275C23.49 11.49 23.415 10.73 23.3 10H12V14.51H18.47C18.18 15.99 17.34 17.25 16.08 18.1L19.945 21.1C22.2 19.01 23.49 15.92 23.49 12.275Z" fill="#4285F4" />
@@ -212,7 +212,7 @@ function Login() {
               </svg>
               Google
             </Button>
-            <Button variant="outline" className="h-11 rounded-xl border-slate-200 bg-white hover:bg-slate-50 font-semibold gap-2 text-slate-700">
+            <Button variant="outline" className="h-11 rounded-xl border-border bg-card hover:bg-background font-semibold gap-2 text-foreground">
               <svg viewBox="0 0 24 24" className="h-5 w-5 fill-current" aria-hidden="true">
                 <path d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.04 2.26-.79 3.59-.79 1.56 0 2.95.69 3.77 1.84-3.13 1.93-2.6 6.32.61 7.63-1.01 1.4-1.95 2.52-3.05 3.49zm-3.8-13.69c-.06-1.57.73-2.9 1.77-3.8-.93-1.48-2.6-1.74-3.15-1.77-.16 1.62.67 3.03 1.61 3.96.9.91 2.37 1.73 3.19 1.62-.23-.01-.42-.01-1.42 0z" />
               </svg>
@@ -220,9 +220,9 @@ function Login() {
             </Button>
           </div>
 
-          <div className="mt-8 text-center text-sm font-medium text-slate-500">
+          <div className="mt-8 text-center text-sm font-medium text-muted-foreground">
             Don't have an account?{" "}
-            <Link to="/signup" className="text-blue-600 font-bold hover:underline">
+            <Link to="/signup" className="text-primary font-bold hover:underline">
               Create Account &rarr;
             </Link>
           </div>
@@ -233,13 +233,13 @@ function Login() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.8, delay: 0.5 }}
-          className="mt-12 flex flex-wrap justify-center gap-4 text-slate-500 text-xs font-medium"
+          className="mt-12 flex flex-wrap justify-center gap-4 text-muted-foreground text-xs font-medium"
         >
-          <div className="flex items-center gap-1.5 bg-white/50 px-3 py-1.5 rounded-full border border-slate-200/50 backdrop-blur-sm">
+          <div className="flex items-center gap-1.5 bg-card/50 px-3 py-1.5 rounded-full border border-border backdrop-blur-sm">
             <ShieldCheck className="h-4 w-4 text-emerald-500" /> 256-bit Encryption
           </div>
-          <div className="flex items-center gap-1.5 bg-white/50 px-3 py-1.5 rounded-full border border-slate-200/50 backdrop-blur-sm">
-            <Server className="h-4 w-4 text-blue-500" /> 99.9% Uptime
+          <div className="flex items-center gap-1.5 bg-card/50 px-3 py-1.5 rounded-full border border-border backdrop-blur-sm">
+            <Server className="h-4 w-4 text-primary" /> 99.9% Uptime
           </div>
         </motion.div>
 

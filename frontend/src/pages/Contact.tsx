@@ -194,7 +194,7 @@ function Contact() {
 
       {/* Toast Notification */}
       {showToast && (
-        <div className="fixed bottom-5 right-5 bg-green-500 text-white py-3 px-6 rounded-lg shadow-lg transition-all animate-in slide-in-from-bottom-5 duration-300">
+        <div className="fixed bottom-5 right-5 bg-green-500 text-foreground py-3 px-6 rounded-lg shadow-lg transition-all animate-in slide-in-from-bottom-5 duration-300">
           <p className="font-bold">Message Sent!</p>
           <p className="text-sm">Thank you for contacting us. We'll get back to you soon.</p>
         </div>

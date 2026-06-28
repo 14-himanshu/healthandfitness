@@ -25,9 +25,9 @@ export default function ActivityRings({ latest, goals }: { latest: Metric, goals
       <div className="flex justify-center relative h-[180px] w-full items-center">
         <svg className="w-[180px] h-[180px] -rotate-90 transform">
           {/* Base Rings */}
-          <circle cx="90" cy="90" r="75" stroke="currentColor" strokeWidth="12" fill="transparent" className="text-rose-100 dark:text-slate-800" />
-          <circle cx="90" cy="90" r="55" stroke="currentColor" strokeWidth="12" fill="transparent" className="text-emerald-100 dark:text-slate-800" />
-          <circle cx="90" cy="90" r="35" stroke="currentColor" strokeWidth="12" fill="transparent" className="text-sky-100 dark:text-slate-800" />
+          <circle cx="90" cy="90" r="75" stroke="currentColor" strokeWidth="12" fill="transparent" className="text-rose-100 dark:text-foreground" />
+          <circle cx="90" cy="90" r="55" stroke="currentColor" strokeWidth="12" fill="transparent" className="text-emerald-100 dark:text-foreground" />
+          <circle cx="90" cy="90" r="35" stroke="currentColor" strokeWidth="12" fill="transparent" className="text-sky-100 dark:text-foreground" />
           
           {/* Progress Rings */}
           <circle cx="90" cy="90" r="75" stroke="currentColor" strokeWidth="12" fill="transparent" strokeDasharray={2 * Math.PI * 75} strokeDashoffset={(2 * Math.PI * 75) - (caloriePercent/100) * (2 * Math.PI * 75)} strokeLinecap="round" className="text-rose-500 transition-all duration-1000" />
@@ -39,18 +39,18 @@ export default function ActivityRings({ latest, goals }: { latest: Metric, goals
       <div className="flex justify-between px-2 w-full mt-4">
         <div className="text-center">
           <div className="flex justify-center"><Zap className="h-4 w-4 text-rose-500" /></div>
-          <div className="font-bold text-slate-800 mt-1">{calories}</div>
-          <div className="text-[10px] text-slate-500">/{CALORIE_GOAL} kcal</div>
+          <div className="font-bold text-foreground mt-1">{calories}</div>
+          <div className="text-[10px] text-muted-foreground">/{CALORIE_GOAL} kcal</div>
         </div>
         <div className="text-center">
           <div className="flex justify-center"><Target className="h-4 w-4 text-emerald-500" /></div>
-          <div className="font-bold text-slate-800 mt-1">{protein}g</div>
-          <div className="text-[10px] text-slate-500">/{PROTEIN_GOAL}g Pro</div>
+          <div className="font-bold text-foreground mt-1">{protein}g</div>
+          <div className="text-[10px] text-muted-foreground">/{PROTEIN_GOAL}g Pro</div>
         </div>
         <div className="text-center">
           <div className="flex justify-center"><ActivityIcon className="h-4 w-4 text-sky-500" /></div>
-          <div className="font-bold text-slate-800 mt-1">{hrv}</div>
-          <div className="text-[10px] text-slate-500">ms HRV</div>
+          <div className="font-bold text-foreground mt-1">{hrv}</div>
+          <div className="text-[10px] text-muted-foreground">ms HRV</div>
         </div>
       </div>
     </div>
