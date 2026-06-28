@@ -6,4 +6,4 @@ requests
 pydantic
 python-multipart
 chromadb
-chromadb
+groq
