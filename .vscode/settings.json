@@ -1,0 +1,6 @@
+{
+  "python.defaultInterpreterPath": "/Users/himanshupandey/Desktop/healthandfitness/python_agent/venv/bin/python",
+  "python.analysis.extraPaths": [
+    "/Users/himanshupandey/Desktop/healthandfitness/python_agent/venv/lib/python3.14/site-packages"
+  ]
+}
