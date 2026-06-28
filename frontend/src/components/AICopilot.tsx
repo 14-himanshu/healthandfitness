@@ -55,7 +55,7 @@ export default function AICopilot() {
 
     try {
       const token = localStorage.getItem('token');
-      const res = await fetch('http://localhost:4000/api/agent/command', {
+      const res = await fetch(`${import.meta.env.VITE_API_BASE_URL || 'http://localhost:4000/api'}/agent/command`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
